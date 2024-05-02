@@ -50,7 +50,10 @@
 		- **System clock** -> more FE cycle can be run per second 
 		  However -> CPU must be able to handle
 		  -> As may lead to system crashes and overheating, due to unsynchornised data and components
-- ## Two Pass assembler ()
+- ## Macro and directive
+	- **Macro**: sequence of instruction that are given identifier(like a modules), which can be executed several times when called
+	- **Directive**: instruction that tells the assembler how to construct the final executable machine code. (Not a program instruction)
+- ## Two Pass assembler 
 	1. Create symbol table, remove comments and white space,  expansion of macro, check if opcode is in the instruction set
 		- scan instruction line by line in sequence
 		- meet symbolic address: check if already in **symbolic table**
