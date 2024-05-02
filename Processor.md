@@ -61,7 +61,7 @@
 		- yes -> check is **absolute address** known
 			- no -> leave as unknown
 			- yes -> entered in appropriate cell
-	2. program converted into object code or machine code 
+	2. program converted into object code or machine code (using instruction/opcode table) 
 - ## Special purpose register (can only by certain instruction) hold status of a program
 	- CIR -> hold currently decoding/executing instruction
 	- MDR -> stored data fetch/to be written from/on the address strore in MAR
