@@ -1,0 +1,115 @@
+- ## CU Purpose
+	- coordinate the actions and control communication of other component in the CPU
+	- send/receive control signal from control bus
+	- decode and execute instructions in sequence
+- ## Clock purpose
+	- **Internal** (overclocking for this only)
+		- synchronize operation by creating timing signals
+		- To process operation in sequence
+	- **System**
+		- keep track of date and time
+		- synchronize data transfer in other part of the computer
+- ## ALU purpose
+	- part of processor that carried out arithmetic operation and logical comparisons
+- ## **CU**, **Clock** and **Control bus** in **data transfer**
+	- Clock -> synchronize the components
+	- CU -> initiate the data transfer
+	- Both CU and clock use Control bus to send generated signal for the task
+- ## Signal in Control Bus
+	- System clock timing
+	- Read/Write signal
+	- Interrupt
+- ## Buses
+	- Address unidirectional
+	- data uni/bidirectional
+	- control bidirectional
+- ## Laptop Performance 
+	- Reduce load on CPU
+		- use of **GPU**
+		- kill resource hogging processes
+			- Anti-malware
+	- increase storage
+		- **Secondary** -> allow use of VM, less writing interrupt when disk is almost full
+		- Memory
+			- **RAM**
+			  -> processor has direct access
+			  -> save disk access time
+			  -> multitasking: more process can be use at the same time
+			- **cache**
+			  -> store frequent use data/instruction
+			  -> RAM can be use for other things
+			  -> processor can access from cache faster than RAM so CPU can work without needing to waiting for data
+		- Utility program
+			- Disk formatter, Disk analysis, repair and clean up
+			- File Compression
+	- increase data transfer rate -> increase memory access speed
+		- more **bus width** (number of directly accessible memory location)
+	- increase rate of instruction complete
+		- **Core** -> more instruction done in parallel for software optimised for multi-core usage
+		  However -> need good communication between cores
+		- **System clock** -> more FE cycle can be run per second 
+		  However -> CPU must be able to handle
+		  -> As may lead to system crashes and overheating, due to unsynchornised data and components
+- ## Two Pass assembler ()
+	1. Create symbol table, remove comments and white space,  expansion of macro, check if opcode is in the instruction set
+		- scan instruction line by line in sequence
+		- meet symbolic address: check if already in **symbolic table**
+		- no -> add to symbol table in symbolic address column
+		- yes -> check is **absolute address** known
+			- no -> leave as unknown
+			- yes -> entered in appropriate cell
+	2. program converted into object code or machine code 
+- ## Special purpose register (can only by certain instruction) hold status of a program
+	- CIR -> hold currently decoding/executing instruction
+	- MDR -> stored data fetch/to be written from/on the address strore in MAR
+	- MAR -> store the address of the memory currently being read/write on/to
+	- PC -> Store the address of next instruction to be read from
+	- Status register -> store flags in bits use reference events that happened (result of arithmetic: carry/negative/overflow, zero, compare result, parity, interrupt) 
+	- iX -> store a value to be added to which give the another address(if value is not 0)
+- ## General purpose register (can be use by most instruction)
+	- use for any purpose
+	  -> normally use for temporary stored data while performing operation
+	- e.g. ACC
+- ## Interrupt (Detected at the start of next cycle) signal from device or process, seeking processor attention
+	- Software
+	  -> Runtime error: division by zero
+	  -> memory out-of-bound error: Buffer/Stack overflow, array index out of bound, attempt to access invalid memory location
+	  -> Program request for input 
+	- Hardware
+	  -> Printer: out of ink/paper
+	  -> No CD in drive
+	  -> key press in keyboard e.g. ctrl alt delete
+	  -> Power failure
+- ## Interrupt in FE cycle
+	- Flag raise in interrupt register
+	- At the start of next FE cycle: check for higher priority interrupt than current process in interrupt register
+	- if has -> load all registers content into a stack and lower priority interrupt is disabled
+	- source of interrupt identify and appropriate ISR's address is loaded into the PC
+	- _Anything special about the interrupt itself..._
+	- continue first step until no higher priority interrupt than current process
+	- lower priority interrupts are re-enabled
+	- registers' content are restored from the stack and continue with the process
+- ## Type of addressing
+	- relative
+	  -> re-locateable code because all instruction addresses can be specified by base address + offset
+	- direct/absolute
+	- indirect
+	- indexed
+	- immediate
+- ## Type of Opcode
+	- input and output of Data
+	- data movement
+	- arithmetic operation
+	- unconditional and conditional instructions
+	- comparison instructions
+- ## FE cycle
+	- PC store the address of the next instruction to be fetch
+	- This address is copied into MAR via address bus
+	- The instruction of that address in the main memory is copied into MDR via data bus
+	- This instruction is copied to CIR and it's opcode and operand is decoded by the CU
+	- The computer then process the data required: CU send control signal via control bus to operate other processor's component to carry out the instruction
+	- the address in the PC is incremented and the cycle repeat
+- ## Von neumann
+	- has a CPU which has direct access memory
+	- use "stored program" concept, where data and program are both stored
+	- the stored program consist of instructions which CPU executes sequentially
