@@ -1,7 +1,7 @@
 - ## CU Purpose
 	- coordinate the actions and control communication of other component in the CPU
 	- send/receive control signal from control bus
-	- decode and execute instructions in sequence
+	- decode and execute instructions in sequence in CIR
 - ## Clock purpose
 	- **Internal** (overclocking for this only)
 		- synchronize operation by creating timing signals
@@ -20,9 +20,9 @@
 	- Read/Write signal
 	- Interrupt
 - ## Buses
-	- Address unidirectional
-	- data uni/bidirectional
-	- control bidirectional
+	- **Address** unidirectional -> used to transfer address of **memory** or **input/output location**
+	- **Data**: uni/bidirectional -> used to transfer data between the processor and memory/input and output devices
+	- **control**: bidirectional
 - ## Laptop Performance 
 	- Reduce load on CPU
 		- use of **GPU**
@@ -54,14 +54,14 @@
 	- **Macro**: sequence of instruction that are given identifier(like a modules), which can be executed several times when called
 	- **Directive**: instruction that tells the assembler how to construct the final executable machine code. (Not a program instruction)
 - ## Two Pass assembler 
-	1. Create symbol table, remove comments and white space,  expansion of macro, check if opcode is in the instruction set
+	1. Create symbol table, remove comments and white space,  expansion of macro, check if opcode is in the instruction set, directive are acted upon
 		- scan instruction line by line in sequence
 		- meet symbolic address: check if already in **symbolic table**
 		- no -> add to symbol table in symbolic address column
 		- yes -> check is **absolute address** known
 			- no -> leave as unknown
 			- yes -> entered in appropriate cell
-	2. program converted into object code or machine code (using instruction/opcode table) 
+	2. program converted into object code or machine code (using instruction/opcode table), **Symbol resolution**: replace symbolic address with absolute address -> (forward reference resolved is a type of this)
 - ## Special purpose register (can only by certain instruction) hold status of a program
 	- CIR -> hold currently decoding/executing instruction
 	- MDR -> stored data fetch/to be written from/on the address strore in MAR
