@@ -1,1 +1,48 @@
-
+- ## System Software
+- ### Operating system
+	- Kernel is most always store in the ROM and is a part of OS that is always running in the memory
+	- **Management**
+		- **error and recovery**
+			- management of interrupt
+			- diagnostic and troubleshooter
+			- safe mode boot
+			- restore point/backup
+		- **security** (through utility program)
+			- backup
+			- firewall
+			- anti-malware
+			- access right control and authentication
+		- **file/storage** (using utility program)
+			- file compression
+			- provide file naming convention
+			- maintain and keep track of FAT/NTFS
+				- Each file allocation units (FAU) is being track for free space and what files is stored on them
+				- maintain and keep track of directory structure
+					- keep track of action like, cut copy paste, move, open, close, or writing of files
+		- **memory**
+			- allocate process to memory
+			- only allow one address for one process
+			- keep track of the block for unused space and regain them
+			- manage the movement of data between the memory, processor and secondary storage
+			- manage the use of paging/VM and partitioning/segmentation
+		- **process**
+			- scheduling of process (HL or LL scheduler)
+				- keep track of priority and state of process(New,  ready, running, terminated, waiting, suspend)
+			- conflict resolution of process trying to access the same resource, ensure fair access
+			- allocates resources to each process and share data between process
+			- manage the software interrupt of process
+			- allow multitask
+			- (breaking process into threads 'probably not a mark')
+		- **peripheral**
+			- managing the hardware interrupt send from device
+			- control peripheral through process
+			- keep track for peripheral device and auto install drivers -> plug-and-play
+			- manage the power usage
+			- management of queue e.g. when printing many files
+			- management of buffer to allow different transfer speed and operation speed of 2 devices
+		- Hardware computer interface: hide complexity of hardware from developer(when writing software) and user (through CLI, GUI)
+		- Platform for application software to run
+	- **Utility program**
+		- 
+- ## Security and threats
+	- 
