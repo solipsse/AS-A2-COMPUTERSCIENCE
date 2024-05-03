@@ -99,14 +99,28 @@
 			- Not good for text as most text don't have consecutive repeat of character -> there may be increase in file size for storing that each character happens once
 		- **Huffman coding**(for text or sound): analyse to find most use values and give shorter code for them(instead of 8 bits), turning original steam of byte into a bit stream. More frequent character get shorter binary representation {*notice:* code in a stream has to be differentiable, using 1 to represent 'something' is not suitable as we don't know where the code end}
 - ## Database
-	- **Terms**
-		- entity: (sometimes used interchangeably with a table) an object that the data is stored about
-		- table: all the data about an entity
-		- record/tuple: a row of data in a table about one instance of an object
-		- filed/attribute: a column in a table
-		- Candidate key -> key that is unique and could be use as primary key
-		- alternate/secondary key -> use for indexing, a candidate key that is not chosen as primary key
-		- data redundancy - repeated data
+- ### Why is database better than File base
+	- Referential integrity is enforce
+		- use of constraint and relationship: data validation, primary and foreign key
+		- cascading update/delete
+		- data is stored and edited in one place(using linked table, reduce data redundancy)
+	- complex query can be run with data being complete and (accurate) due to referential integrity
+	- data redundancy is reduce through enforcing referential integrity
+	- reduce program-data dependency
+		- program don't need to be rewritten each time
+		- many program can access same data
+	- security and privacy improvement
+		- Views and access right of different user group, confidential data can be hidden from others
+		- concurrent table/record locking: 2 user can update a record without overwriting or losing data
+		- auditing to track ... and prevent
+- **Terms**
+	- entity: (sometimes used interchangeably with a table) an object that the data is stored about
+	- table: all the data about an entity
+	- record/tuple: a row of data in a table about one instance of an object
+	- filed/attribute: a column in a table
+	- Candidate key -> key that is unique and could be use as primary key
+	- alternate/secondary key -> use for indexing, a candidate key that is not chosen as primary key
+	- data redundancy - repeated data
 - **Referential integrity**
 	- ensure foreign key points to a corresponding primary key in another table
 	- allowing cascade delete/updates
