@@ -128,7 +128,7 @@
 			3. no transitive dependencies, no non-key dependencies
 	- **Security** measure *particular* to DB
 		- Views management
-		- concurrent Table/Record Locking
+		- concurrent Table/Record Locking: doesn't allow simultaneous changes to a record so data is not overwritten
 	- **Developer interface**
 		- Creating: table, relationship, form(designing the buttons), and reports
 	- **Query Processor**
