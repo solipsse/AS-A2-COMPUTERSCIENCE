@@ -1,3 +1,3 @@
 - [Processor](Processor.md)
-- [Info Rep](InformationRepresentation-Database.md)
+- [Info Representation and Database](InformationRepresentation-Database.md)
 - 
