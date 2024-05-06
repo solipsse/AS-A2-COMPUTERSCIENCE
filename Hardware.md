@@ -10,8 +10,8 @@
 - ## Use of buffer
 	- Act as **temporary storage**, *before use* by receiving device
 	- allow different device/component to *operate* at **different speed** (e.g. different transfer speed/processing speed)
-	- allow computer to transfer when buffer ask and then be use for other thing while waiting
-	- use of interrupt to indicate high/low watermark
+	- allow computer to transfer when buffer ask and then be use for other thing while waiting for a device which do task relatively slow
+	- use of interrupt to indicate high/low watermark of buffer, this request for more data or ask to stop sending data
 - ## Secondary Storage
 	- **Magnetic HDD**: Longevity(slow degradation of data) -> cost least per gb
 		- has several platter made with aluminium or glass, coated with ferrous oxide which is magnetiseable
