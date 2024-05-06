@@ -1,3 +1,17 @@
+
+- ## Use of buffer
+	- Act as **temporary storage**, *before use* by receiving device
+	- allow different device/component to *operate* at **different speed** (e.g. different transfer speed/processing speed)
+	- allow computer to transfer when buffer ask and then be use for other thing while waiting for a device which do task relatively slow
+	- use of interrupt to indicate high/low watermark of buffer, this request for more data or ask to stop sending data
+- ## Storage component comparison TREND (down to up/ up to down)
+	- Fast access time
+	- **Register**
+	- Primary Storage - direct CPU access
+		- **cache memory** -> SRAM
+		- **main memory** -> DRAM (RAM)
+	- **Secondary Storage** - assess through I/O ports
+	- Lower cost per GB, more capacity
 - ## Primary Memory -> can be directly access by Processor
 	- **ROM** -> read only -> store: BIOS, Bootstrap, kernel of OS(PC), operating software(embedded system) and mapped table of values (e.g. keyboard mapped matrix to ASCII)
 		- **ROM**: flash once by manufacturer
@@ -7,11 +21,6 @@
 	- **RAM** -> volatile -> hold data of thing currently using (or progress data) -> has fast access time
 		- **Static**: use *flash* storage (complex circuit) -> faster access time (no need to be refresh) -> use as cache memory 
 		- **Dynamic**: use a capacitor and a transistor to store charge -> need to be constantly refreshed (use power) -> higher storage density -> cheaper per GB -> use in main memory
-- ## Use of buffer
-	- Act as **temporary storage**, *before use* by receiving device
-	- allow different device/component to *operate* at **different speed** (e.g. different transfer speed/processing speed)
-	- allow computer to transfer when buffer ask and then be use for other thing while waiting for a device which do task relatively slow
-	- use of interrupt to indicate high/low watermark of buffer, this request for more data or ask to stop sending data
 - ## Secondary Storage
 	- **Magnetic HDD**: Longevity(slow degradation of data) -> cost least per gb
 		- has several platter made with aluminium or glass, coated with ferrous oxide which is magnetiseable
