@@ -1,4 +1,4 @@
-**- ## System Software (target user)
+- ## System Software (for user)
 - ## Operating system
 	- Kernel is most always store in the ROM and is a part of OS that is always running in the memory
 	- **Management**
@@ -20,7 +20,7 @@
 			- maintain and keep track of FAT/NTFS
 				- Each file allocation units (FAU) is being track for free space and what files is stored on them
 				- maintain and keep track of directory structure
-					- keep track of action like, cut copy paste, move, open, close, or writing of files
+					- keep track of action like, cut copy paste, move, open, close, or writing of files or folder
 		- **memory**
 			- allocate process to memory
 			- only allow one address for one process
@@ -146,4 +146,3 @@
 	- **physical measure**: Locker or something
 	- token authenticator: e.g. swipe card
 - 
-**
