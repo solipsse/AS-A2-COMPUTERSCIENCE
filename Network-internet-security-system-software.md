@@ -1,4 +1,4 @@
-- ## System Software
+- ## System Software (target user)
 - ### Operating system
 	- Kernel is most always store in the ROM and is a part of OS that is always running in the memory
 	- **Management**
@@ -51,13 +51,13 @@
 		- File compression
 		- Virus checker(antimalware)
 		- backup software
-- ## Program Library: need to be imported into the code
+- ## Program Library: need to be imported into the code (for programmer)
 	- **Advantage**
 		- Save **time** -> save **money**
 			- **Pretested**, **standard function** -> unlikely to have error -> make use of **other programmer's knowledge** -> may be too complex to code
 			- improvement to library routine = improvement to program
 	- **Disadvantage**
-		- compatibility issues: code may not work, missing feature or changes in code during update -> not meet exact requirement
+		- compatibility issues: code may not work, missing feature or changes in code during update (hard to fix) -> not meet exact requirement
 		- tested doesn't mean best performance, or unknown issue may be missed
 	- **Static**: required routine source code will be inserted into the program when compile
 	- **Dynamic linked**: precompiled-routine (dll: binary files) when required, it is loaded onto the memory and each processes can use it (they will receive their own copy of DLL function from this memory space to avoid "two process accessing same resource")
@@ -68,5 +68,22 @@
 			- Save memory space and storage space
 				- many processes can access same DLL files -> reduce redundancy of library coded in programs
 				- it is loaded into memory only when required
+		- **Disadvantage**
+			- Require DDL to be available and not corrupted
+- ## Language translator
+	- Both compiler and interpreter convert line by line from source into intermediate code (e.g. Assembly, Bytecode(java), etc.)
+	- 
+	- Compilers: execute faster (no need interpreter at run time) -> allow cross-compilation (meaning, compile on one computer but exe can be use on other computer) -> no source code distributed (security: code doesn't get change for malicious intent and can't see what the app does) 
+		- make exe
+		- record error when found and error report done *at the end*
+		- if no error on line, convert it to intermediate
+		- *at the end*: if no error found then intermediate code get convert to machine code(object)
+	- Interpreter: good as a debugger -> can test partially completed program, error seen at real time, changes effect seen at real time (translated statement execute immediately)
+		- halt program at error line, when fix it continues
+		- doesn't make exe = need source code and interpreter each run-time
+	- Assembler Assembly(LLL) => machine code
+	- Java: uses a *2-step* **translation process**
+		- source code compiled into bytecode by java compiler (javac)
+		- any JVM can interpret this, otherwise use JIT(just in time) compiler to compile bytecode to machine code at runtime for better performance
 - ## Security and threats
 	-  
