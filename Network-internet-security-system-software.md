@@ -1,4 +1,4 @@
-- ## System Software (target user)
+**- ## System Software (target user)
 - ## Operating system
 	- Kernel is most always store in the ROM and is a part of OS that is always running in the memory
 	- **Management**
@@ -146,3 +146,4 @@
 	- **physical measure**: Locker or something
 	- token authenticator: e.g. swipe card
 - 
+**
