@@ -1,20 +1,17 @@
-- ## CU Purpose
+- ## CU Purpose (using signal through control bus)
 	- coordinate the actions and control communication of other component in the CPU
 	- send/receive control signal from control bus
 	- decode and execute instructions in sequence in CIR
-- ## Clock purpose
-	- **Internal** (overclocking for this only)
-		- synchronize operation by creating timing signals
-		- To process operation in sequence
-	- **System**
+- ## Clock purpose (using signal through control bus)
+	- **Internal** (overclocking for this only) inside the CPU
+		- synchronize the timing of FE and data transfer within processor
+		- using system clock time to determine frequency of its own timing
+	- **System** on the motherboard
 		- keep track of date and time
-		- synchronize data transfer in other part of the computer
+		- synchronize all component on the motherboard through timing signal
+	- **To process operation in sequence**
 - ## ALU purpose
 	- part of processor that carried out arithmetic operation and logical comparisons
-- ## **CU**, **Clock** and **Control bus** in **data transfer**
-	- Clock -> synchronize the components
-	- CU -> initiate the data transfer
-	- Both CU and clock use Control bus to send generated signal for the task
 - ## Signal in Control Bus
 	- System clock timing
 	- Read/Write signal
@@ -22,7 +19,9 @@
 - ## Buses
 	- **Address** unidirectional -> used to transfer address of **memory** or **input/output location**
 	- **Data**: uni/bidirectional -> used to transfer data between the processor and memory/input and output devices
-	- **control**: bidirectional
+	- **control**: bidirectional 
+- ## IAS (Immediate access storage) a concept for RAM
+	- voltaile 
 - ## Laptop Performance 
 	- Reduce load on CPU
 		- use of **GPU**
@@ -114,5 +113,12 @@
 	- the address in the PC is incremented and the cycle repeat
 - ## Von neumann
 	- has a CPU which has direct access memory
-	- use "stored program" concept, where data and program are both stored
+	- use "stored program" concept, where data and program are both stored on the same media
 	- the stored program consist of instructions which CPU executes sequentially
+	- **component**
+		- registers
+		- buses
+		- CU
+		- ALU
+		- system clock
+		- IAS
