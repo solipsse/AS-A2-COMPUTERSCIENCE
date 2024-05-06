@@ -2,17 +2,19 @@
 - ### Operating system
 	- Kernel is most always store in the ROM and is a part of OS that is always running in the memory
 	- **Management**
-		- **error and recovery**
+		- **error detection and recovery**
 			- management of interrupt
 			- diagnostic and troubleshooter
 			- safe mode boot
+			- shutdown the system without loss of data
 			- restore point/backup
-		- **security** (through utility program)
+		- **security** (through utility program) ensure data privacy and prevent intrusion, 
 			- backup
 			- firewall
 			- anti-malware
-			- access right control and authentication
+			- access right control and authentication (link to file mangement)
 		- **file/storage** (using utility program)
+			- Access right mechanism
 			- file compression
 			- provide file naming convention
 			- maintain and keep track of FAT/NTFS
@@ -28,7 +30,7 @@
 		- **process**
 			- scheduling of process (HL or LL scheduler)
 				- keep track of priority and state of process(New,  ready, running, terminated, waiting, suspend)
-			- conflict resolution of process trying to access the same resource, ensure fair access
+			- resolution of conflict when two or more processes try to access the same resource, ensure fair access
 			- allocates resources to each process and share data between process
 			- manage the software interrupt of process
 			- allow multitask
@@ -42,7 +44,29 @@
 			- management of buffer to allow different transfer speed and operation speed of 2 devices
 		- Hardware computer interface: hide complexity of hardware from developer(when writing software) and user (through CLI, GUI)
 		- Platform for application software to run
-	- **Utility program**
-		- 
+	- ## **Utility program**
+		- Disk defragmentor
+		- Disk Formatter
+		- Disk content analysis and repair 
+		- File compression
+		- Virus checker(antimalware)
+		- backup software
+- ## Program Library: need to be imported into the code
+	- **Advantage**
+		- Save **time** -> save **money**
+			- **Pretested**, **standard function** -> unlikely to have error -> make use of **other programmer's knowledge** -> may be too complex to code
+			- improvement to library routine = improvement to program
+	- **Disadvantage**
+		- compatibility issues: code may not work, missing feature or changes in code during update -> not meet exact requirement
+		- tested doesn't mean best performance, or unknown issue may be missed
+	- **Static**: required routine source code will be inserted into the program when compile
+	- **Dynamic linked**: precompiled-routine (dll: binary files) when required, it is loaded onto the memory and each processes can use it (they will receive their own copy of DLL function from this memory space to avoid "two process accessing same resource")
+		- **Advantage**
+			- Program that use this will have small executable fiies
+			- change to library doesn't need program to be recompile
+				- Receive automatic updates of library function
+			- Save memory space and storage space
+				- many processes can access same DLL files -> reduce redundancy of library coded in programs
+				- it is loaded into memory only when required
 - ## Security and threats
-	- 
+	-  
