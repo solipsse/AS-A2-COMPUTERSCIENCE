@@ -1,18 +1,18 @@
 - ## System Software (target user)
-- ### Operating system
+- ## Operating system
 	- Kernel is most always store in the ROM and is a part of OS that is always running in the memory
 	- **Management**
 		- **error detection and recovery**
-			- management of interrupt
-			- diagnostic and troubleshooter
-			- safe mode boot
-			- shutdown the system without loss of data
-			- restore point/backup
-		- **security** (through utility program) ensure data privacy and prevent intrusion, 
+			- **management of interrupt**
+			- **diagnostic** and **troubleshooter**
+			- **safe mode boot**
+			- **shutdown the system without loss of data**
+			- **restore point/backup**
+		- **security** (**see more there in utility program**) ensure data privacy and prevent intrusion, 
 			- backup
 			- firewall
 			- anti-malware
-			- access right control and authentication (link to file mangement)
+			- **access right control and authentication** (link to file management) (**see more in general security prevention**)
 		- **file/storage** (using utility program)
 			- Access right mechanism
 			- file compression
@@ -45,12 +45,32 @@
 		- Hardware computer interface: hide complexity of hardware from developer(when writing software) and user (through CLI, GUI)
 		- Platform for application software to run
 	- ## **Utility program**
-		- Disk defragmentor
-		- Disk Formatter
-		- Disk content analysis and repair 
-		- File compression
-		- Virus checker(antimalware)
-		- backup software
+		- **Disk defragmentor**
+			- make individual files occupy contiguous block (collates free space)
+			- improve access time as reduce head movement of HDD
+		- **Disk Formatter**
+			- partition disc into logical drive
+			- setup the file system (for first use)
+			- delete all data from disc
+		- **Disk content analysis and repair** 
+			- content analysis: find and mark bad sector due to hardware failure
+			- repair: try to restore corrupted file or lost data -> if not possible, mark locations as bad sector(not to be use) 
+		- **File compression**: to reduce size of file
+			- save storage space (may increase computer performance) -> reduce bandwidth needed -> reduce transmission time
+		- **Virus checker**(anti-malware)
+			- scan for (malware) and check against database of known ones at scheduled time interval
+			- quarantine or delete any software that is found to meet
+			- need to be updated to keep track with new (malware)
+		- **backup**
+			- copy of data/files store in another location at scheduled time interval 
+			- in an event of data/file loss/corruption, it can be recovered
+		- Similar to backup but not utility: **Disk mirroring**
+			- simultaneously writing to two disk
+			- in an event on hardware failure on one disk, the identical copy is immediately available
+		- **Firewall**:
+			- monitor incoming and outgoing network traffic and compare to set-criteria
+			- Criteria including: whitelist, and blacklist ip address or port number
+			- block any traffic that doesn't meet criteria
 - ## Program Library: need to be imported into the code (for programmer)
 	- **Advantage**
 		- Save **time** -> save **money**
@@ -69,8 +89,22 @@
 				- many processes can access same DLL files -> reduce redundancy of library coded in programs
 				- it is loaded into memory only when required
 		- **Disadvantage**
-			- Require DDL to be available and not corrupted
-- ## Language translator
+			- Require DLL to be available and not corrupted
+- ## IDE (For programmer)
+	- Visual Aid
+		- Pretty printing (color coding): identify key term
+		- Expanding and collapsing code block
+		- auto indentation / formatting
+	- Coding aid
+		- dynamic syntax check: check for "grammatical" error as code is type, underline those syntax error
+		- context-sensitive prompt: help complete statement base on what is type 
+		- autocomplete: suggest what to type next
+	- debugger (testing aid):
+		- Breakpoints: line where the code stop running at to check the variable and expression
+		- single stepping (up down, in out of modules): run code line by line to see  the value of the variable
+		- Report/watch window: see the how variable and expression change as the program run
+			- Variable and expression values (e.g. x = 1, x < a + c = TRUE)
+- ## Language translator (for programmer)
 	- Both compiler and interpreter convert line by line from source into intermediate code (e.g. Assembly, Bytecode(java), etc.)
 	- 
 	- Compilers: execute faster (no need interpreter at run time) -> allow cross-compilation (meaning, compile on one computer but exe can be use on other computer) -> no source code distributed (security: code doesn't get change for malicious intent and can't see what the app does) 
@@ -85,5 +119,30 @@
 	- Java: uses a *2-step* **translation process**
 		- source code compiled into bytecode by java compiler (javac)
 		- any JVM can interpret this, otherwise use JIT(just in time) compiler to compile bytecode to machine code at runtime for better performance
-- ## Security and threats
-	-  
+- ## Threats toward security and privacy: some threats use combination of each of these
+	- Malware: malicious software
+		- Virus: replicate itself, try to corrupt data
+		- spyware: record and access data remotely(usually use a key logger) 
+	- Hacker: unauthorized, illegal access to a system, may steal data, damage the system or damage the data 
+	- Phishing: use of emails, claiming to be an legitimate, ask user to enter a bogus site to get financial or personal data (require user action)
+	- Pharming: use of bogus site that redirect to fake website to get financial or personal data, also claim to be legitimate (automatic)
+- ## General security prevention
+	- Creating private network or smaller network (private ip, use of subnet)
+	- proxy server and VPN to redirect attack
+	- **Authentication**
+		- **Biometric**: can't be guess and is unique for every human
+		- **2FA** or **2 Step verification**: **describe it** (use of OTP, answering question previously made by user)
+		- **strong password** : **describe it**
+		- **Digital signature**: reverse asymmetric encryption
+			- hashing algorithm is use on message to produce digest
+			- digest encrypt by private key to make digital signature
+			- message is sent with digital signature
+			- digital signature is decrypted with public key to produce digest
+			- message is then gone through hashing algorithm and check if digest is the same
+			- if yes then email is authentic
+		- **Digital Certificate**: uses digital signature, and certificate is receive from **CA** (**Certification authority**), this is use with website to confirm identity and then performing handshake (**TLS protocol**)
+	- **Encryption**: makes data meaningless without decryption key
+	- **Access right**
+	- **physical measure**: Locker or something
+	- token authenticator: e.g. swipe card
+- 
