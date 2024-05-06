@@ -1,0 +1,103 @@
+- ## Primary Memory -> can be directly access by Processor
+	- **ROM** -> read only -> store: BIOS, Bootstrap, kernel of OS(PC), operating software(embedded system) and mapped table of values (e.g. keyboard mapped matrix to ASCII)
+		- **ROM**: flash once by manufacturer
+		- **PROM**: flash once by anyone
+		- **EPROM**: flash multiple time by anyone, remove entire data through UV(so need to be remove from device), data overwritten after removing only
+		- **EEPROM**: flash multiple time by anyone, remove data through voltage and can be done by parts, so data can be overwritten. use *flash* storage
+	- **RAM** -> volatile -> hold data of thing currently using (or progress data) -> has fast access time
+		- **Static**: use *flash* storage (complex circuit) -> faster access time (no need to be refresh) -> use as cache memory 
+		- **Dynamic**: use a capacitor and a transistor to store charge -> need to be constantly refreshed (use power) -> higher storage density -> cheaper per GB -> use in main memory
+- ## Use of buffer
+	- Act as **temporary storage**, *before use* by receiving device
+	- allow different device/component to *operate* at **different speed** (e.g. different transfer speed/processing speed)
+	- allow computer to transfer when buffer ask and then be use for other thing while waiting
+	- use of interrupt to indicate high/low watermark
+- ## Secondary Storage
+	- **Magnetic HDD**: Longevity(slow degradation of data) -> cost least per gb
+		- has several platter made with aluminium or glass, coated with ferrous oxide which is magnetiseable
+		- platters are divided into concentric track and sector, the intersection between the track and sector is a block (a basic unit of storage)
+		- these platter are mounted onto a central spindle which rotate it at high speed
+		- the read/write head are just above each platter and are mounted onto an arm
+		- electric circuit controls the movement of arm and the head
+		- the data is encoded as magnetic pattern for each block
+		- writing: variation of current in the head produce variation of magnetic field on the disk
+		- reading: variation of magnetic field on the disk produce variation of current through the head
+		- the whole mechanism is contain inside an aluminium box
+	- **Optical disc reader/writer**: **durable**(not prone to damage by power failure, head crash, or exposure to water) -> **low manufacturing cost** -> slowest read/write
+		- Drive motor is use to spin the disc
+		- a lens focus laser (infra-red/blue) onto the disc
+		- use a tracking mechanism to move the laser assembly
+		- disc is made with plastic, coated with a layer of aluminium
+		- disc has a surface arranged in long **spiral**(but **concentric track** on *DVD RAM*), which has a sequence of **pits and lands** that encode digital data; for *CD-RW/DVD-RW* the pit and land are the material that form after 'burn' process, **crystalline and amorphous**, the intensity of laser determine which material it will form when cool. This is call **phase change recording**
+		- data is formatted into sector along the track like in magnetic hard disk
+		- reading:
+			- laser will be reflected differently from pits and land or crystalline and amorphous
+			- the difference in intensity of reflection can be interpreted as 1 or 0
+		- writing: 
+			- more speed of rotation -> more data transfer rate
+			- shorter wavelength -> more focus, more data can be stored
+	- **Solid State (Flash) memory**: no mechanical component -> has no noise -> fast access 
+		- use NAND or NOR gates structure: arrange in latches
+		- there is a grid of columns and row where intersection form a cell, containing 2 transistor: control gate and floating gate
+		- memory cell store voltage to represent 1 or 0, so movement of electron controlled read/write
+		- Data can't be overwritten in same address unless first remove
+- ## Input and Output
+	- **Microphone**
+		- incoming analogue sound wave cause vibration of **diaphragm** in the microphone
+		- this cause a coil to move past a permanent magnet and generate current.'
+		- Variation of amplitude determine the amount of vibration cause variation in current.
+		- the generated current is converted by ADC for the internal processor to take sample of amplitude
+	- **Speaker**
+		- digital amplitude signals are converted by DAC to create electric current
+		- This current is sent to the speaker which pass through a coil creating electromagnetic field
+		- variation of amplitude digital data in time create variation of current and determine the direction and the polarity of electromagnet
+		- the electromagnet is repelled or attracted to the permanent magnet causing a movement that vibrates the diaphragm and creates sound wave
+	- **Touchscreen**
+		- **Capacitive**
+			- has several layers
+			- the screen store electric charge and sensors on the four corner of screen detect for current change
+			- when touched: charge are transfer onto finger causing capacitance change which sensor detects
+			- **PCT** use circuit of array of capacity beneath screen which can detect touch of several fingertip
+		- **Resistive**
+			- has two charged plates with air gap between them
+			- pressure cause the plate to touch and complete the circuit
+			- This create a voltage divider in horizontal and vertical direction
+		- point of contact is registered
+		- the internal processor then calculate the coordinate of the touch upon receiving the signal
+	- **Printer**
+		- **3DP** commonly use are **FDM**
+			- uses additive manufacturing: layer by layer, one layer at a time, starting from bottom using x, y, z coordinates
+			- CAD is used to design the model and CAM is use to slice the model into layers which can be fed into 3D Printer through flash drive
+			- the stepper motor control the x,y,z coordinates of the nozzles
+			- the filament is fed into the nozzle, which is heated and pushed out
+			- The filament is fused together layer by layer
+		- temperature need to be control at right amount, using fans and sensors
+		- **Laser Printer**
+			- Revolving drum is electrostatically charged
+			- Rotating mirror and laser is used to scanned back and forth on the drum and discharge particular points creating pattern which create an image
+			- drum is coated with opposite charged toner which attract to charged area
+			- electrostatically charged paper is fed into the drum and pattern on drum is transferred onto paper
+			- paper is passed onto fuser to seal the image
+			- excess charge and excess toner are remove and collected
+	- **VR Headset**
+		- sensors
+			- accelerometer: detect orientation of head
+			- eye tracker: to change the view accordingly making it realistic
+		- controller for interaction
+		- use of screen
+		- use of headset -> HDMI suitable
+- ## System
+	- **Embedded**
+		- combination of hardware and software dedicated to one function
+		- contain a microprocessor chip
+		- system does not have its own OS
+		- contain firmware that is hard to be altered by user
+		- does not require much processing power
+		- integrated into a bigger system
+		- **Drawback**
+		- most use normal ROM: troubleshooting require specialist -> difficult to upgrade firmware -> can't be adapted for other task -> end up as waste
+	- **Monitor**: 
+		- Sensor: temperature, pressure, infra-red and sound
+	- **Control**: 
+		- Actuator
+		- **Feedback**: enable output to affect subsequent input -> condition are automatically adjusted -> ensure that system operate within set criteria
